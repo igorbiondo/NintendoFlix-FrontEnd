@@ -1,0 +1,36 @@
+.btn {
+	border: none;
+	border-radius: 10px;
+	padding: 15px 30px;
+	display: inline-block;
+	background: black;
+	color: white;
+	cursor: pointer;
+	transition: all 0.3s;
+	margin-right: 20px;
+	width: 130px;
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+}
+
+.btn a:visited {
+	color: black;
+}
+
+.btn:hover {
+	background: white;
+	color: black;
+	z-index: 1;
+}
+
+@media (max-width: 650px) {
+	.btn {
+		font-size: 10px;
+		width: 20%;
+	}
+
+	svg {
+		display: none;
+	}
+}

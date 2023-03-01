@@ -1,0 +1,22 @@
+.footer {
+	height: 100px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-around;
+}
+
+.social-mideas {
+	font-size: 25px;
+	display: flex;
+	gap: 10px;
+}
+
+@media (max-width: 500px) {
+	.footer {
+		height: 50px;
+		font-size: 10px;
+	}
+	.social-mideas {
+		gap: 5px;
+	}
+}
