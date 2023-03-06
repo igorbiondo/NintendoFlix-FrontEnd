@@ -1,15 +1,38 @@
 import Slider from 'react-slick';
 import './games-list.styles.scss';
 import GameListCard from '../game-list-card/game-list-card.component';
+import { useEffect, useState } from 'react';
 const GamesList = ({ title, games, gameId }) => {
+	const [isMobile, setIsMobile] = useState(false);
+	const [arrow, setArrow] = useState(true);
+
+	useEffect(() => {
+		const handleResize = () => {
+			if (window.innerWidth <= 768) {
+				setIsMobile(true);
+				setArrow(false);
+			} else {
+				setIsMobile(false);
+				setArrow(true);
+			}
+		};
+
+		handleResize();
+
+		window.addEventListener('resize', handleResize);
+
+		return () => {
+			window.removeEventListener('resize', handleResize);
+		};
+	}, []);
 	const settings = {
 		dots: true,
 		infinite: true,
 		speed: 200,
 		slidesToShow: 4,
 		slidesToScroll: 1,
-		arrows: true,
-		touchMove: false,
+		arrows: arrow,
+		touchMove: isMobile,
 		variableWidth: true,
 		responsive: [
 			{

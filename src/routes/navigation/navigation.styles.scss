@@ -97,6 +97,9 @@ a:visited {
 	}
 }
 @media (max-width: 500px) {
+	.pinning-header {
+		overflow: hidden;
+	}
 	.nav-bar {
 		font-size: 10px;
 	}

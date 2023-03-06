@@ -13,9 +13,11 @@
 
 .social-mideas a {
 	color: white;
+	font-size: 20px;
 }
 .social-mideas a:visited {
 	color: white;
+	font-size: 20px;
 }
 
 @media (max-width: 500px) {
@@ -25,5 +27,11 @@
 	}
 	.social-mideas {
 		gap: 5px;
+		width: 100px;
+		color: white;
+	}
+
+	.social-mideas a {
+		font-size: 15px;
 	}
 }

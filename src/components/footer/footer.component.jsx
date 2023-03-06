@@ -7,10 +7,10 @@ const Footer = () => {
 		<div className="footer">
 			<div className="social-mideas">
 				<a href="https://www.linkedin.com/in/igorbiondo/">
-					<BsLinkedin />
+					<BsLinkedin className="icon" />
 				</a>
 				<a href="https://github.com/igorbiondo">
-					<BsGithub />
+					<BsGithub className="icon" />
 				</a>
 			</div>
 			<div className="created-by">
