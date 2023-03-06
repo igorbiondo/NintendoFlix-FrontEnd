@@ -35,10 +35,10 @@ const Billboard = () => {
 								name={'Jogar'}
 								icon={<TbPlayerPlay />}
 							></Button>
-							<Button
+							{/* <Button
 								name={'Info'}
 								icon={<TbInfoSquare />}
-							></Button>
+							></Button> */}
 						</div>
 					</div>
 				</div>

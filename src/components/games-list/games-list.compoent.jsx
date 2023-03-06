@@ -29,7 +29,7 @@ const GamesList = ({ title, games, gameId }) => {
 		dots: true,
 		infinite: true,
 		speed: 200,
-		slidesToShow: 5,
+		slidesToShow: 4,
 		slidesToScroll: 1,
 		arrows: arrow,
 		touchMove: isMobile,
@@ -38,8 +38,8 @@ const GamesList = ({ title, games, gameId }) => {
 			{
 				breakpoint: 1024,
 				settings: {
-					slidesToShow: 4,
-					slidesToScroll: 1,
+					slidesToShow: 3,
+					slidesToScroll: 3,
 					infinite: true,
 					dots: true,
 				},
@@ -47,15 +47,15 @@ const GamesList = ({ title, games, gameId }) => {
 			{
 				breakpoint: 600,
 				settings: {
-					slidesToShow: 3,
-					slidesToScroll: 1,
-					initialSlide: 3,
+					slidesToShow: 2,
+					slidesToScroll: 2,
+					initialSlide: 1,
 				},
 			},
 			{
 				breakpoint: 500,
 				settings: {
-					slidesToShow: 2,
+					slidesToShow: 1,
 					slidesToScroll: 1,
 				},
 			},
