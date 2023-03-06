@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import Play from '../../components/play/play.component';
 import './gameStyle.scss';
 
