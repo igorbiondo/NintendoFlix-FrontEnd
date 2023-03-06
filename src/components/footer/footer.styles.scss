@@ -1,14 +1,21 @@
 .footer {
-	height: 100px;
-	margin: 0 auto;
+	height: 200px;
 	display: flex;
 	justify-content: space-around;
+	align-items: center;
 }
 
 .social-mideas {
 	font-size: 25px;
 	display: flex;
 	gap: 10px;
+}
+
+.social-mideas a {
+	color: white;
+}
+.social-mideas a:visited {
+	color: white;
 }
 
 @media (max-width: 500px) {

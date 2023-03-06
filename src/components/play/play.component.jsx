@@ -1,4 +1,5 @@
 import { Fragment, useState, useEffect } from 'react';
+import Footer from '../footer/footer.component';
 import './play.styles.scss';
 
 const Play = ({ style, rom }) => {
@@ -92,6 +93,21 @@ const Play = ({ style, rom }) => {
 			<div className="display" style={{ ...style }}>
 				<div id="game"></div>
 			</div>
+			<div className="control-info">
+				<img
+					className="joystick-info"
+					src="/Joystick.png"
+					alt=""
+				/>
+
+				<p>
+					*Teclas de controle poodem ser alteradas no menu
+					do player. <br />
+					*Conecte um joystick USB ou Bluetooth e sinta a
+					experiência
+				</p>
+			</div>
+			<Footer />
 		</Fragment>
 	);
 };
