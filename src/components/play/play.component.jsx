@@ -3,6 +3,27 @@ import Footer from '../footer/footer.component';
 import './play.styles.scss';
 
 const Play = ({ style, rom }) => {
+	const [isMobile, setIsMobile] = useState({
+		display: 'none',
+	});
+
+	useEffect(() => {
+		const handleResize = () => {
+			if (window.innerWidth <= 768) {
+				setIsMobile({ display: 'none' });
+			} else {
+				setIsMobile({ display: 'flex' });
+			}
+			console.log('oi');
+		};
+		handleResize();
+
+		window.addEventListener('resize', handleResize);
+
+		return () => {
+			window.removeEventListener('resize', handleResize);
+		};
+	}, []);
 	const [emulatorConfig, setEmulatorConfig] = useState({
 		player: '#game',
 		gameUrl: `${process.env.REACT_APP_API_URL}/games/rom/1/${rom.rom}`,
@@ -25,7 +46,7 @@ const Play = ({ style, rom }) => {
 		return () => {
 			window.removeEventListener('load', handleUnload);
 		};
-	}, []);
+	}, [isMobile]);
 
 	useEffect(() => {
 		const root = document.querySelector('#root');
@@ -93,7 +114,7 @@ const Play = ({ style, rom }) => {
 			<div className="display" style={{ ...style }}>
 				<div id="game"></div>
 			</div>
-			<div className="control-info">
+			<div className="control-info" style={isMobile}>
 				<img
 					className="joystick-info"
 					src="/Joystick.png"

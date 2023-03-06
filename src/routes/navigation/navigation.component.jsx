@@ -10,7 +10,6 @@ import { useState } from 'react';
 
 const Navigation = () => {
 	const [styles, setStyles] = useState({});
-	const [position, setPosition] = useState(1);
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -37,12 +36,6 @@ const Navigation = () => {
 		return () => {
 			window.removeEventListener('scroll', handleScroll);
 		};
-	}, [position]);
-
-	useEffect(() => {
-		if (window.scrollY >= 0) {
-			setPosition(window.scrollY);
-		}
 	}, []);
 
 	const handleClick = () => {
