@@ -55,7 +55,7 @@ const GamesList = ({ title, games, gameId }) => {
 			{
 				breakpoint: 500,
 				settings: {
-					slidesToShow: 3,
+					slidesToShow: 2,
 					slidesToScroll: 1,
 				},
 			},

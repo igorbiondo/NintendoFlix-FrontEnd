@@ -15,10 +15,18 @@ const Footer = () => {
 				</a>
 			</div>
 			<div className="social-mideas">
-				<a href="https://www.linkedin.com/in/igorbiondo/">
+				<a
+					href="https://www.linkedin.com/in/igorbiondo/"
+					target={'_blank'}
+					rel="noreferrer"
+				>
 					<BsLinkedin className="icon" />
 				</a>
-				<a href="https://github.com/igorbiondo">
+				<a
+					href="https://github.com/igorbiondo"
+					target="_blank"
+					rel="noreferrer"
+				>
 					<BsGithub className="icon" />
 				</a>
 			</div>
