@@ -4,7 +4,7 @@ import './play.styles.scss';
 const Play = ({ style, rom }) => {
 	const [emulatorConfig, setEmulatorConfig] = useState({
 		player: '#game',
-		gameUrl: `http://127.0.0.1:3001/games/rom/1/${rom.rom}`,
+		gameUrl: `${process.env.REACT_APP_API_URL}/games/rom/1/${rom.rom}`,
 		core: 'snes',
 		mouse: false,
 		multitap: false,

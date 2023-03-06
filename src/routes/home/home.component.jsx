@@ -8,8 +8,8 @@ const Home = () => {
 	const [gameId, setGameId] = useState(0);
 
 	useEffect(() => {
-		fetch('http://127.0.0.1:3001/games').then((res) =>
-			res.json().then((data) => setGames(data))
+		fetch(`${process.env.REACT_APP_API_URL}/games`).then(
+			(res) => res.json().then((data) => setGames(data))
 		);
 	}, []);
 	useEffect(() => {
