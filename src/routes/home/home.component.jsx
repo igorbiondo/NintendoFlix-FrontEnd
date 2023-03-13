@@ -1,6 +1,7 @@
 import { Fragment, useState, useEffect } from 'react';
 import './home.styles.scss';
 import MainView from '../../components/main-view/main-view.component';
+import Warning from '../../components/warning/warning.component';
 import Footer from '../../components/footer/footer.component';
 const Home = () => {
 	const [games, setGames] = useState([]);
@@ -22,8 +23,15 @@ const Home = () => {
 		setMostPlyaed(fav);
 	}, [games]);
 
+	function alertMessage() {
+		if (games.length < 1) {
+			return <Warning />;
+		}
+	}
+
 	return (
 		<div className="bd">
+			{alertMessage()}
 			<MainView
 				title="Mais Jogados"
 				games={[mostPlayed, games]}
