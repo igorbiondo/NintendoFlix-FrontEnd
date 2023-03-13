@@ -31,7 +31,7 @@ const Home = () => {
 
 	return (
 		<div className="bd">
-			{alertMessage()}
+			{setTimeout(alertMessage(), 100)}
 			<MainView
 				title="Mais Jogados"
 				games={[mostPlayed, games]}
