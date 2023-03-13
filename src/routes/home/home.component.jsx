@@ -26,17 +26,20 @@ const Home = () => {
 	function alertMessage() {
 		if (games.length < 1) {
 			return <Warning />;
+		} else {
+			return (
+				<MainView
+					title="Mais Jogados"
+					games={[mostPlayed, games]}
+					gameId={gameId}
+				/>
+			);
 		}
 	}
 
 	return (
 		<div className="bd">
-			{setTimeout(alertMessage(), 100)}
-			<MainView
-				title="Mais Jogados"
-				games={[mostPlayed, games]}
-				gameId={gameId}
-			/>
+			{alertMessage()}
 			<Footer />
 		</div>
 	);
