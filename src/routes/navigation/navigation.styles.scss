@@ -39,13 +39,11 @@ $color-dark: #141414;
 }
 
 .logo {
-	font-size: 28px;
-	font-style: italic;
-	display: inline-block;
-	border: white solid 4px;
-	border-radius: 50px;
-	padding: 10px 15px 10px 10px;
-	color: $color-red;
+	width: 150px;
+	height: 41.66px;
+	background-image: url(../../../public/nintendoflix-logo.png);
+
+	background-size: 100% 100%;
 }
 
 .menu-primario {
@@ -80,32 +78,61 @@ a:visited {
 	.nav-bar {
 		font-size: 20px;
 	}
-
-	.logo {
-		font-size: 20px;
-		border: white solid 3px;
-	}
 }
 @media (max-width: 700px) {
 	.nav-bar {
 		font-size: 15px;
 	}
-
-	.logo {
-		font-size: 15px;
-		border: white solid 2px;
-	}
 }
-@media (max-width: 500px) {
+@media (max-width: 501px) {
 	.pinning-header {
 		overflow: hidden;
+		height: 100px;
+	}
+	.nav-container {
+		background-image: linear-gradient(
+			180deg,
+			(
+					hsla(0, 0%, 8%, 0) 0,
+					hsla(0, 0%, 8%, 0.15) 15%,
+					hsla(0, 0%, 8%, 0.35) 29%,
+					hsla(0, 0%, 8%, 0.58) 44%,
+					#141414 68%,
+					#141414
+				)
+				transparent
+		);
+		flex-direction: column;
+		gap: 20px;
+		align-items: center;
+		justify-content: center;
+		min-width: unset;
+		height: 100px;
 	}
 	.nav-bar {
-		font-size: 10px;
+		font-size: 20px;
+		padding-top: 20px;
 	}
 
 	.logo {
-		font-size: 13px;
-		border: white solid 2px;
+		background-image: url(../../../public/nintendoflix-logo-mobile.png);
+		position: absolute;
+		width: 40px;
+		height: 40px;
+		left: 4%;
+		top: 15%;
+	}
+	.menu-primario {
+		position: absolute;
+		left: 20%;
+	}
+	.menu-primario a {
+		display: flex;
+	}
+	.menu-secundario {
+		top: 25%;
+	}
+	.menu-secundario li:nth-child(2) {
+		display: none;
 	}
 }

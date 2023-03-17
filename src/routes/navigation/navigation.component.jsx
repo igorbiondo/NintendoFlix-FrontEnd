@@ -51,9 +51,11 @@ const Navigation = () => {
 						className="nav-container"
 						style={{ ...styles }}
 					>
-						<Link to="/" onClick={handleClick}>
-							<h2 className="logo">NINTENDOFLIX</h2>
-						</Link>
+						<Link
+							className="logo"
+							to="/"
+							onClick={handleClick}
+						></Link>
 						<div className="nav-bar">
 							<ul className="menu-primario">
 								<li>

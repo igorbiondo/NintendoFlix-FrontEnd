@@ -7,7 +7,7 @@ import './gameStyle.scss';
 const Game = () => {
 	const displayStyle = {
 		width: '1024px',
-		height: '768px',
+		height: '80vh',
 		maxWidth: '100%',
 	};
 	const gameId = useParams();

@@ -11,7 +11,7 @@ const Footer = () => {
 					target="_blank"
 					rel="noreferrer"
 				>
-					Created by: @IgorBiondo
+					<span>Created by: @IgorBiondo</span>
 				</a>
 			</div>
 			<div className="social-mideas">
