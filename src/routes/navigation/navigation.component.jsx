@@ -83,7 +83,7 @@ const Navigation = () => {
 									</Link>
 								</li>
 								<li>
-									<Link>
+									<Link to="/login">
 										<FaUserAlt />
 									</Link>
 								</li>

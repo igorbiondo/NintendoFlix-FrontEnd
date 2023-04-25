@@ -11,9 +11,26 @@
 	width: 130px;
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	gap: 10px;
-}
+	margin-bottom: 10px;
 
+	&.btn-white {
+		background-color: white;
+		color: black;
+	}
+}
+.login {
+	background-color: red;
+	width: auto;
+	margin-right: 0;
+	margin-top: 15px;
+}
+.google-sign-in {
+	margin-top: 15px;
+	margin-right: 0;
+	background-color: #4b99e9;
+}
 .btn a:visited {
 	color: black;
 }

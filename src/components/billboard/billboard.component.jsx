@@ -2,6 +2,8 @@ import './billboard.styles.scss';
 import { TbPlayerPlay } from 'react-icons/tb';
 import { TbInfoSquare } from 'react-icons/tb';
 
+import { Link } from 'react-router-dom';
+
 import Button from '../button/button.component';
 
 const Billboard = () => {
@@ -31,10 +33,12 @@ const Billboard = () => {
 							</p>
 						</div>
 						<div className="hero-links">
-							<Button
-								name={'Jogar'}
-								icon={<TbPlayerPlay />}
-							></Button>
+							<Link to={'/game/smw'}>
+								<Button>
+									<TbPlayerPlay />
+									Jogar
+								</Button>
+							</Link>
 							{/* <Button
 								name={'Info'}
 								icon={<TbInfoSquare />}
