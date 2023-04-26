@@ -1,4 +1,5 @@
 import { Fragment, useState } from 'react';
+import { BsArrowLeftSquare } from 'react-icons/bs';
 import LoginFormContainer from '../login-form-container/login-from-container.components';
 import Footer from '../footer/footer.component';
 import './login.styles.scss';
@@ -25,10 +26,16 @@ const Login = () => {
 				<LoginFormContainer>
 					{login ? <LoginForm /> : <SignInForm />}
 					<span
-						className="acess-option"
+						className="access-option"
 						onClick={cadastrar}
 					>
-						{login ? 'cadastre-se' : 'login'}
+						{login ? (
+							'cadastre-se'
+						) : (
+							<BsArrowLeftSquare
+								style={{ width: '1.5em', height: '1.5em' }}
+							/>
+						)}
 					</span>
 				</LoginFormContainer>
 			</div>

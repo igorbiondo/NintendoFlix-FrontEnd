@@ -1,16 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import {
-	getAuth,
-	signInWithPopup,
-	GoogleAuthProvider,
-} from 'firebase/auth';
-
-import {
-	getFirestore,
-	doc,
-	getDoc,
-	setDoc,
-} from 'firebase/firestore';
+import * as Auth from 'firebase/auth';
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyBFfFClMA4UXcbILidU1TMpEiPlG5gRwWI',
@@ -23,42 +12,50 @@ const firebaseConfig = {
 
 const firebaseApp = initializeApp(firebaseConfig);
 
-const provider = new GoogleAuthProvider();
+const provider = new Auth.GoogleAuthProvider();
 provider.setCustomParameters({
 	prompt: 'select_account',
 });
 
-export const auth = getAuth();
-export const signInWithGooglePopup = () =>
-	signInWithPopup(auth, provider);
+export const auth = Auth.getAuth(firebaseApp);
 
-export const db = getFirestore();
+export function signInWithGooglePopup() {
+	return Auth.signInWithPopup(auth, provider);
+}
 
-export const creatUserDocumentFromAuth = async (
-	userAuth,
-	additionalInformation = {}
-) => {
-	const userDocRef = doc(db, 'users', userAuth.uid);
+export async function createAuthUserWithEmailAndPassword(
+	email,
+	password,
+	displayName
+) {
+	if (!email || !password) return;
 
-	const userSnapShot = await getDoc(userDocRef);
+	return await Auth.createUserWithEmailAndPassword(
+		auth,
+		email,
+		password,
+		displayName
+	);
+}
 
-	if (!userSnapShot.exists()) {
-		const { displayName, email } = userAuth;
-		const createdAt = new Date();
+export async function updateUserName(name) {
+	await Auth.updateProfile(auth.currentUser, {
+		displayName: name,
+	});
+}
 
-		try {
-			await setDoc(userDocRef, {
-				displayName,
-				email,
-				createdAt,
-				...additionalInformation,
-			});
-		} catch (error) {
-			console.error(
-				'Error creating the user',
-				error.message
-			);
-		}
-	}
-	return userDocRef;
-};
+export async function signAuthInWithEmailAndPassword(
+	email,
+	password
+) {
+	if (!email || !password) return;
+	return await Auth.signInWithEmailAndPassword(
+		auth,
+		email,
+		password
+	);
+}
+
+export async function logOutUser() {
+	return await Auth.signOut(auth);
+}

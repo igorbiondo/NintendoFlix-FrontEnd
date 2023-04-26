@@ -1,55 +1,72 @@
-import { Fragment } from 'react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from '../button/button.component';
 import {
 	signInWithGooglePopup,
-	creatUserDocumentFromAuth,
+	signAuthInWithEmailAndPassword,
 } from '../../utils/firebase/firebase.utils';
-import { useState } from 'react';
 import { AiOutlineGoogle } from 'react-icons/ai';
 import './login-form.styles.scss';
 
+const defaultFields = {
+	email: '',
+	password: '',
+};
 const LoginForm = () => {
-	const logGoogleUser = async () => {
-		const { user } = await signInWithGooglePopup();
-		const userDocRef = await creatUserDocumentFromAuth(
-			user
+	const navigate = useNavigate();
+	const [formFields, setFormFields] =
+		useState(defaultFields);
+
+	const { email, password } = formFields;
+
+	const changeHandler = (event) => {
+		const { name, value } = event.target;
+		setFormFields({ ...formFields, [name]: value });
+	};
+
+	const submitHandler = async (event) => {
+		event.preventDefault();
+		const user = await signAuthInWithEmailAndPassword(
+			email,
+			password
 		);
+		console.log(user);
+		return navigate('/');
 	};
-	const [googleBtn, setGoogleBtn] = useState(false);
-	const formClicked = () => {
-		setGoogleBtn(!googleBtn);
+	const logGoogleUser = async () => {
+		try {
+			await signInWithGooglePopup();
+			return navigate('/');
+		} catch (error) {}
 	};
+
 	return (
 		<div className="login-form-data">
 			<h2>Entrar</h2>
-			<form
-				action="POST"
-				onFocus={formClicked}
-				onBlur={formClicked}
-			>
+			<form onSubmit={submitHandler}>
 				<input
 					type="email"
 					name="email"
-					id=""
+					required
+					onChange={changeHandler}
+					value={email}
 					placeholder="Email"
 				/>
 				<input
 					type="password"
-					name=""
-					id=""
+					name="password"
+					required
 					placeholder="Senha"
+					onChange={changeHandler}
+					value={password}
 				/>
-				{googleBtn && (
-					<Button
-						type="submit"
-						buttonType={'login'}
-						onClick={logGoogleUser}
-					>
+				{formFields.email && (
+					<Button type="submit" buttonType={'login'}>
 						Entrar
 					</Button>
 				)}
 			</form>
-			{!googleBtn && (
+			{!formFields.email && (
 				<div className="second-login">
 					<Button
 						type="button"
