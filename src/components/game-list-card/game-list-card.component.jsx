@@ -3,12 +3,12 @@ import './game-list-card.styles.scss';
 const GameListCard = (game) => {
 	return (
 		<div className="game-card">
-			<Link to={`/game/${game.rom}`}>
+			<Link to={`/game/${game.id}/${game.rom}`}>
 				<img
 					src={`${process.env.REACT_APP_API_URL}/games/image/${game.id}`}
 					alt=""
 				/>
-				<h1>{game.name}</h1>
+				{/* <h1>{game.name}</h1> */}
 			</Link>
 		</div>
 	);

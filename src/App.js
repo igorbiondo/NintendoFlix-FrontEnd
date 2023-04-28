@@ -10,8 +10,8 @@ function App() {
 			<Route path="/" element={<Navigation />}>
 				<Route index element={<Home />} />
 				<Route path="/login" element={<Login />} />
-				<Route path="/game/" element={<Game />} />
-				<Route path="/game/:rom" element={<Game />} />
+				{/* <Route path="/game/" element={<Game />} /> */}
+				<Route path="/game/:id/:rom" element={<Game />} />
 			</Route>
 		</Routes>
 	);

@@ -33,7 +33,7 @@ const Billboard = () => {
 							</p>
 						</div>
 						<div className="hero-links">
-							<Link to={'/game/smw'}>
+							<Link to={'/game/0/smw'}>
 								<Button>
 									<TbPlayerPlay />
 									Jogar

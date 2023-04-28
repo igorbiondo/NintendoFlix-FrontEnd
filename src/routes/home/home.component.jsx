@@ -14,14 +14,12 @@ const Home = () => {
 		);
 	}, []);
 	useEffect(() => {
-		const fav = [];
-		games.map((game) => {
-			if (game.rank === 5) {
-				fav.push(game);
-			}
-		});
-		setMostPlyaed(fav);
-	}, [games]);
+		fetch(
+			`${process.env.REACT_APP_API_URL}/games/mais-jogados`
+		).then((res) =>
+			res.json().then((data) => setMostPlyaed(data))
+		);
+	}, []);
 
 	function alertMessage() {
 		if (games.length < 1) {

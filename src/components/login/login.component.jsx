@@ -14,15 +14,9 @@ const Login = () => {
 	return (
 		<Fragment>
 			<div className="login-container">
-				<div className="test">
-					<div className="banner-len"></div>
-					<img
-						className="banner"
-						src="./banner.jpg"
-						alt=""
-					/>
-					<div className="lens"></div>
-				</div>
+				<div className="banner-len"></div>
+				<img className="banner" src="./banner.jpg" alt="" />
+				<div className="lens"></div>
 				<LoginFormContainer>
 					{login ? <LoginForm /> : <SignInForm />}
 					<span

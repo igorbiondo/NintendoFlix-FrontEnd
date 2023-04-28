@@ -50,6 +50,12 @@
 	.btn svg {
 		display: none;
 	}
+	.google-sign-in {
+		font-size: 15px;
+	}
+	.google-sign-in svg {
+		display: unset;
+	}
 }
 @media (max-width: 500px) {
 	.btn {
@@ -66,5 +72,17 @@
 		background: white;
 		font-weight: 800;
 		color: black;
+	}
+	.google-sign-in {
+		background-color: #4b99e9;
+		font-weight: 600;
+		color: white;
+	}
+	.login {
+		background-color: red;
+		width: auto;
+		font-weight: 600;
+		margin-right: 0;
+		margin-top: 15px;
 	}
 }

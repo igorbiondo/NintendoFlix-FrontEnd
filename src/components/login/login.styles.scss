@@ -2,9 +2,7 @@
 	// top: -90px;
 	position: relative;
 }
-.test {
-	overflow: hidden;
-}
+
 .banner-len {
 	position: absolute;
 	background-color: rgba(0, 0, 0, 0.422);
@@ -26,4 +24,13 @@
 }
 .access-option {
 	cursor: pointer;
+}
+
+@media (max-width: 500px) {
+	.login-container {
+		overflow: hidden;
+	}
+	.banner {
+		width: auto;
+	}
 }
