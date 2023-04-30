@@ -5,7 +5,7 @@ const GameListCard = (game) => {
 		<div className="game-card">
 			<Link to={`/game/${game.id}/${game.rom}`}>
 				<img
-					src={`${process.env.REACT_APP_API_URL}/games/image/${game.id}`}
+					src={`${process.env.REACT_APP_API_URL}/games/${game.imageUrl}`}
 					alt=""
 				/>
 				{/* <h1>{game.name}</h1> */}

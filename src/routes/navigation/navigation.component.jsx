@@ -37,7 +37,6 @@ const Navigation = () => {
 			window.removeEventListener('scroll', handleScroll);
 		};
 	}, []);
-
 	const handleClick = () => {
 		const navWindow = window;
 		delete navWindow.EJS;
@@ -83,7 +82,7 @@ const Navigation = () => {
 									</Link>
 								</li>
 								<li>
-									<Link to="/login">
+									<Link>
 										<FaUserAlt />
 									</Link>
 								</li>

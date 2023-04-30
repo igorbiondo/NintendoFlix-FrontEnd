@@ -1,43 +1,52 @@
 import { Fragment, useState, useEffect } from 'react';
+import axios from 'axios';
 import './home.styles.scss';
 import MainView from '../../components/main-view/main-view.component';
 import Warning from '../../components/warning/warning.component';
 import Footer from '../../components/footer/footer.component';
 const Home = () => {
+	// useEffect(() => {
+	// 	axios
+	// 		.get(`${process.env.REACT_APP_API_URL}/games/initial`)
+	// 		.then((res) => {
+	// 			setGames(res.data);
+	// 			setIsLoading(false);
+	// 		})
+	// 		.catch((err) => console.log(err));
+	// }, []);
+
 	const [games, setGames] = useState([]);
-	const [mostPlayed, setMostPlyaed] = useState([]);
-	const [gameId, setGameId] = useState(0);
+	const [mostPlayed, setMostPlayed] = useState([]);
+	const [billboard, setBillboard] = useState([]);
+	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
-		fetch(`${process.env.REACT_APP_API_URL}/games`).then(
-			(res) => res.json().then((data) => setGames(data))
-		);
-	}, []);
-	useEffect(() => {
-		fetch(
-			`${process.env.REACT_APP_API_URL}/games/mais-jogados`
-		).then((res) =>
-			res.json().then((data) => setMostPlyaed(data))
-		);
-	}, []);
+		const fetchData = async () => {
+			try {
+				const res = await axios.get(
+					`${process.env.REACT_APP_API_URL}/games/initial`
+				);
+				setGames(res.data);
+				setIsLoading(false);
+			} catch (err) {
+				console.log(err);
+			}
+		};
 
-	function alertMessage() {
-		if (games.length < 1) {
-			return <Warning />;
-		} else {
-			return (
-				<MainView
-					title="Mais Jogados"
-					games={[mostPlayed, games]}
-					gameId={gameId}
-				/>
-			);
-		}
-	}
-
+		fetchData();
+	}, []);
+	console.log(games);
 	return (
 		<div className="bd">
-			{alertMessage()}
+			{isLoading ? (
+				<Warning />
+			) : (
+				<MainView
+					title="Mais Jogados"
+					games={[games.mostPlayed, games.games]}
+					billboard={games.billboard}
+				/>
+			)}
 			<Footer />
 		</div>
 	);
