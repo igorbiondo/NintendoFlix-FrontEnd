@@ -1,0 +1,26 @@
+.login-form h2 {
+	margin-bottom: 30px;
+	font-size: 30px;
+	font-weight: 500;
+	font-style: bold;
+}
+
+.login-form input {
+	padding: 15px;
+	margin-bottom: 15px;
+	border-radius: 5px;
+}
+
+.login-form form {
+	display: flex;
+	flex-direction: column;
+}
+
+.second-login {
+	display: flex;
+	justify-content: space-between;
+}
+
+.second-login button {
+	width: 100%;
+}

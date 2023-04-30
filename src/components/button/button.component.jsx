@@ -1,12 +1,23 @@
-import { Link } from 'react-router-dom';
 import './button.styles.scss';
+const BUTTON_TYPE_CLASSES = {
+	google: 'google-sign-in',
+	login: 'login',
+	play: 'play-btn',
+	white: 'btn-white',
+};
 
-const Button = (props) => {
+const Button = ({
+	children,
+	buttonType,
+	...otherProps
+}) => {
 	return (
-		<Link className="btn" to={'/game/smw'}>
-			{props.icon}
-			{props.name}
-		</Link>
+		<button
+			className={`btn ${BUTTON_TYPE_CLASSES[buttonType]}`}
+			{...otherProps}
+		>
+			{children}
+		</button>
 	);
 };
 

@@ -1,0 +1,21 @@
+.login-form-container::before {
+	content: '';
+	display: block;
+	height: 140px;
+}
+
+.login-form-container::after {
+	content: '';
+	display: block;
+	height: 170px;
+}
+
+.login-form {
+	padding: 50px;
+	width: 400px;
+	height: 500px;
+	margin: 0 auto;
+	background-color: rgba(0, 0, 0, 0.759);
+	margin-bottom: 20px;
+	z-index: 2;
+}

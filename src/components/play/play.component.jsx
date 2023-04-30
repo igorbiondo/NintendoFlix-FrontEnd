@@ -8,37 +8,6 @@ const Play = ({ style, rom }) => {
 	});
 
 	useEffect(() => {
-		const handleResize = () => {
-			if (window.innerWidth <= 768) {
-				setIsMobile({ display: 'none' });
-			} else {
-				setIsMobile({ display: 'flex' });
-			}
-			console.log('oi');
-		};
-		handleResize();
-
-		window.addEventListener('resize', handleResize);
-
-		return () => {
-			window.removeEventListener('resize', handleResize);
-		};
-	}, []);
-	const [emulatorConfig, setEmulatorConfig] = useState({
-		player: '#game',
-		gameUrl: `${process.env.REACT_APP_API_URL}/games/rom/1/${rom.rom}`,
-		core: 'snes',
-		mouse: false,
-		multitap: false,
-		pathToData: '../data/',
-		language: 'pt-BR',
-		startOnLoaded: false,
-		// gameId: 1,
-		// serveUrl: 'http://127.0.0.1:3005/',
-		// oldCore: true,
-		// ligGun: false,
-	});
-	useEffect(() => {
 		const handleUnload = () => {
 			console.log('saindo');
 		};
@@ -47,6 +16,36 @@ const Play = ({ style, rom }) => {
 			window.removeEventListener('load', handleUnload);
 		};
 	}, [isMobile]);
+
+	useEffect(() => {
+		const handleResize = () => {
+			if (window.innerWidth <= 768) {
+				setIsMobile({ display: 'none' });
+			} else {
+				setIsMobile({ display: 'flex' });
+			}
+		};
+		handleResize();
+		window.addEventListener('resize', handleResize);
+		return () => {
+			window.removeEventListener('resize', handleResize);
+		};
+	}, []);
+
+	const [emulatorConfig, setEmulatorConfig] = useState({
+		player: '#game',
+		gameUrl: `${process.env.REACT_APP_API_URL}/games/rom/${rom.id}/${rom.rom}`,
+		core: 'snes',
+		mouse: false,
+		multitap: false,
+		pathToData: '../../data/',
+		language: 'pt-BR',
+		startOnLoaded: false,
+		gameId: 1,
+		// serveUrl: 'http://127.0.0.1:3005/',
+		// oldCore: true,
+		// ligGun: false,
+	});
 
 	useEffect(() => {
 		const root = document.querySelector('#root');
@@ -93,10 +92,10 @@ const Play = ({ style, rom }) => {
 					EJS_core = '${emulatorConfig.core}';
 					EJS_gameID = ${emulatorConfig.gameId};
 					EJS_pathtodata = '${emulatorConfig.pathToData}';
-					EJS_netplayUrl = '${emulatorConfig.serveUrl}';
-					EJS_lightgun = ${emulatorConfig.ligGun}
 					EJS_oldCores = ${emulatorConfig.oldCore};
+					EJS_netplayUrl = '${emulatorConfig.serveUrl}';
 					`;
+		// EJS_lightgun = ${emulatorConfig.ligGun}
 		// EJS_mouse = ${emulatorConfig.mouse};
 		// EJS_multitap = ${emulatorConfig.multitap};
 		// EJS_startOnLoaded = ${emulatorConfig.startOnLoaded};
@@ -104,10 +103,10 @@ const Play = ({ style, rom }) => {
 
 		const script2 = document.createElement('script');
 		script2.type = 'text/javascript';
-		script2.src = '../data/loader.js';
+		script2.src = `../../data/loader.js`;
 		root.insertAdjacentElement('afterend', script);
 		root.insertAdjacentElement('afterend', script2);
-	}, [emulatorConfig]);
+	}, []);
 
 	return (
 		<Fragment>

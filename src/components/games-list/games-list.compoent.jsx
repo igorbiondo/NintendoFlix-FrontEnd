@@ -2,7 +2,7 @@ import Slider from 'react-slick';
 import './games-list.styles.scss';
 import GameListCard from '../game-list-card/game-list-card.component';
 import { useEffect, useState } from 'react';
-const GamesList = ({ title, games, gameId }) => {
+const GamesList = ({ title, games }) => {
 	const [isMobile, setIsMobile] = useState(false);
 	const [arrow, setArrow] = useState(true);
 
@@ -73,7 +73,7 @@ const GamesList = ({ title, games, gameId }) => {
 								// name={game.name}
 								key={game.id}
 								rom={game.key}
-								gameId={gameId}
+								imageUrl={game.imageUrl}
 							/>
 						);
 					})}

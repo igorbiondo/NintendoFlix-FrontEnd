@@ -37,7 +37,6 @@ const Navigation = () => {
 			window.removeEventListener('scroll', handleScroll);
 		};
 	}, []);
-
 	const handleClick = () => {
 		const navWindow = window;
 		delete navWindow.EJS;
