@@ -35,7 +35,7 @@ const Home = () => {
 
 		fetchData();
 	}, []);
-	console.log(games);
+	// console.log(games);
 	return (
 		<div className="bd">
 			{isLoading ? (
